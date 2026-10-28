@@ -1,0 +1,2 @@
+package pre10mini;
+public class MiniBank {public static void main(String[] args)throws InterruptedException{Account a=new Account("AC0001",0);TransactionProcessor p=new TransactionProcessor();for(int i=0;i<100;i++)p.submit(()->a.deposit(10));p.stop();System.out.println("Balance after 100 deposits: "+a.getBalance());Object lock=new Object();System.out.println("Producer-consumer and deadlock lock-order exercises belong here; see README.");}}

@@ -1,0 +1,2 @@
+package pre09mini;
+public class MiniBank {public static void main(String[] args)throws InterruptedException{Account a=new Account("AC0001",0);Thread[] ts=new Thread[10];for(int i=0;i<ts.length;i++){ts[i]=new Thread(new AccountWorker(a,1000,1),"Worker-"+(i+1));ts[i].start();}for(Thread t:ts)t.join();System.out.println("Expected balance: 10000");System.out.println("Actual balance: "+a.getBalance());}}

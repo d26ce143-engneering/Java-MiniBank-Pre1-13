@@ -1,0 +1,2 @@
+package pre12mini;
+public class MiniBank {public static void main(String[] args){AccountStore store=new AccountStore();store.save(new Account("AC0001",5000));store.save(new Account("AC0002",2000));store.save(new Account("AC0003",9000));System.out.println("Find AC0002: "+store.get("AC0002"));System.out.println("Sorted high to low: "+store.sortedByBalance());Account a=store.get("AC0001");a.deposit(250);System.out.println("History: "+a.getHistory());}}

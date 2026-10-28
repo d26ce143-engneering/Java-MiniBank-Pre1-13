@@ -1,0 +1,2 @@
+package pre03mini;
+public class MiniBank {public static void main(String[] args){Account a=new Account("AC0001","Riya",4000),b=new Account("AC0001","Other",999);System.out.println(a);System.out.println("Equal by account number: "+a.equals(b));System.out.println("Is Account? "+(a instanceof Account));Customer c=new Customer("C1","Riya","r@example.com","9876543210",new Customer.Address("12 Main Rd","Anand","388001"));System.out.println(c.getAddress().getCity());System.out.println("Clone: "+c.clone().getName());}}

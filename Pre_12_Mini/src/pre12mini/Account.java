@@ -1,0 +1,3 @@
+package pre12mini;
+import java.util.*;
+public class Account {private final String accountNumber;private long balance;private final List<String> history=Collections.synchronizedList(new ArrayList<>());public Account(String n,long b){accountNumber=n;balance=b;}public String getAccountNumber(){return accountNumber;}public synchronized long getBalance(){return balance;}public synchronized void deposit(long a){if(a>0){balance+=a;history.add("DEPOSIT "+a);}}public synchronized boolean withdraw(long a){if(a>0&&balance>=a){balance-=a;history.add("WITHDRAW "+a);return true;}return false;}public List<String> getHistory(){synchronized(history){return new ArrayList<>(history);}}public String toString(){return accountNumber+" | "+balance;}}

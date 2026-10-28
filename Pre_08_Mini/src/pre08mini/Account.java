@@ -1,0 +1,3 @@
+package pre08mini;
+import pre08mini.exception.*;
+public class Account {private final String accountNumber;private long balance;public Account(String n,long b){accountNumber=n;balance=b;}public String getAccountNumber(){return accountNumber;}public long getBalance(){return balance;}public void deposit(long a)throws InvalidAmountException{if(a<=0)throw new InvalidAmountException();balance+=a;}public void withdraw(long a)throws InsufficientFundsException,InvalidAmountException{if(a<=0)throw new InvalidAmountException();if(a>balance)throw new InsufficientFundsException(a-balance);balance-=a;}public void transfer(Account to,long a)throws BankException{try{withdraw(a);to.deposit(a);}catch(BankException e){throw e;}finally{System.out.println("Transfer attempt finished.");}}}

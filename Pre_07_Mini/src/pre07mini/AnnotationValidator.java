@@ -1,0 +1,3 @@
+package pre07mini;
+import java.lang.reflect.*;import java.util.*;import pre07mini.annotation.*;
+public class AnnotationValidator {public static String[] validate(Object obj){List<String> errors=new ArrayList<>();for(Field f:obj.getClass().getDeclaredFields()){try{f.setAccessible(true);Object v=f.get(obj);if(f.isAnnotationPresent(Positive.class)&&v instanceof Number n&&n.longValue()<=0)errors.add(f.getName()+": "+f.getAnnotation(Positive.class).message());if(f.isAnnotationPresent(MaxLength.class)&&v instanceof String s&&s.length()>f.getAnnotation(MaxLength.class).value())errors.add(f.getName()+": maximum length is "+f.getAnnotation(MaxLength.class).value());}catch(IllegalAccessException e){errors.add("Cannot read "+f.getName());}}return errors.toArray(new String[0]);}}

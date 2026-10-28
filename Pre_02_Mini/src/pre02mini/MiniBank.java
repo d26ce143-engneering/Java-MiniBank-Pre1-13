@@ -1,0 +1,2 @@
+package pre02mini;
+public class MiniBank { public static void main(String[] args){ Customer c=new Customer("Riya","riya@example.com","9876543210"); Account[] a={new Account(c.getName(),5000),new Account("Aman",1000),new Account("Neha")}; a[0].deposit(2000);a[0].withdraw(3000);System.out.println(c.getCustomerId()+" "+c.getName());for(Account x:a)System.out.println(x.getAccountNumber()+" balance="+x.getBalance());System.out.println("Large withdrawal succeeded? "+a[0].withdraw(10000));} }

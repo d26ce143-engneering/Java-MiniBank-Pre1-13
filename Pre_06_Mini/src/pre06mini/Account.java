@@ -1,0 +1,2 @@
+package pre06mini;
+public class Account implements Transactable,InterestBearing {private final String accountNumber;private long balance;public Account(String n,long b){accountNumber=n;balance=b;}public String getAccountNumber(){return accountNumber;}public long getBalance(){return balance;}public void deposit(long a){if(a>0)balance+=a;}public boolean withdraw(long a){if(a>0&&balance>=a){balance-=a;return true;}return false;}public double interestRate(){return 4.0;}}

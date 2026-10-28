@@ -1,0 +1,3 @@
+package pre08mini;
+import pre08mini.exception.*;
+public class MiniBank {static class Session implements AutoCloseable{public void close(){System.out.println("Session closed");}}public static void main(String[] args){Account a=new Account("AC0001",1000),b=new Account("AC0002",100);try{a.withdraw(5000);}catch(InsufficientFundsException e){System.out.println(e.getMessage());}catch(InvalidAmountException e){System.out.println(e.getMessage());}try{a.transfer(b,200);}catch(BankException e){System.out.println(e.getMessage());}try(Session s=new Session()){System.out.println("Bank session open");}catch(Exception e){System.out.println(e.getMessage());}System.out.println("Balance: "+a.getBalance());}}

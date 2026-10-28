@@ -1,0 +1,3 @@
+package pre11mini;
+import java.nio.file.*;import java.util.Arrays;
+public class MiniBank {public static void main(String[] args)throws Exception{Path data=Path.of("data");Account[] a={new Account("AC0001","Riya",5000),new Account("AC0002","Aman",2000)};StatePersister.save(a,data.resolve("accounts.dat"));System.out.println("Reloaded: "+Arrays.toString(StatePersister.load(data.resolve("accounts.dat"))));TransactionLog.append(data.resolve("logs/day.log"),"DEPOSIT AC0001 500");TransactionLog.append(data.resolve("logs/day.log"),"WITHDRAW AC0002 200");System.out.println(ReportGenerator.generate(data.resolve("logs")));}}

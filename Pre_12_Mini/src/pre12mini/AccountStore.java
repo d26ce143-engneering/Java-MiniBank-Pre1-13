@@ -1,0 +1,3 @@
+package pre12mini;
+import java.util.*;import java.util.concurrent.ConcurrentHashMap;
+public class AccountStore {private final Map<String,Account> accounts=new ConcurrentHashMap<>();public Account save(Account a){accounts.put(a.getAccountNumber(),a);return a;}public Account get(String id){return accounts.get(id);}public boolean delete(String id){return accounts.remove(id)!=null;}public List<Account> findAll(){return new ArrayList<>(accounts.values());}public List<Account> sortedByBalance(){List<Account> list=findAll();list.sort(Comparator.comparingLong(Account::getBalance).reversed());return list;}}

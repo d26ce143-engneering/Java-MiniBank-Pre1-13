@@ -1,0 +1,2 @@
+package pre06mini;
+public class MiniBank {public static void main(String[] args){Account a=new Account("AC0001",5000);WithdrawRule anonymous=new WithdrawRule(){public boolean allow(Account x,long n){return n>0&&x.getBalance()>=n;}};WithdrawRule lambda=(x,n)->n>0&&x.getBalance()>=n;System.out.println("Anonymous allows: "+anonymous.allow(a,1000));System.out.println("Lambda allows: "+lambda.allow(a,1000));System.out.println("Yearly interest: "+a.yearlyInterest());a.deposit(500);System.out.println("Balance: "+a.getBalance());}}

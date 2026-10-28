@@ -1,0 +1,2 @@
+package pre10mini;
+public class Account {private final String accountNumber;private long balance;public Account(String n,long b){accountNumber=n;balance=b;}public String getAccountNumber(){return accountNumber;}public synchronized void deposit(long a){if(a>0)balance+=a;}public synchronized boolean withdraw(long a){if(a>0&&balance>=a){balance-=a;return true;}return false;}public synchronized long getBalance(){return balance;}}
